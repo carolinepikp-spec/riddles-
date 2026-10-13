@@ -1,0 +1,6 @@
+{
+  "name": "Ocean Riddle Quest",
+  "description": "A delightful ocean-themed riddle adventure game for kids with interactive modes, read-aloud voice, and sea creature treasure badges.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
