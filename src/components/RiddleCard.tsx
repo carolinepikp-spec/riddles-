@@ -21,6 +21,7 @@ export const RiddleCard: React.FC<RiddleCardProps> = ({
   onNext,
   showNextButton = true,
 }) => {
+  const [displayOptions, setDisplayOptions] = useState<string[]>([]);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isAnswered, setIsAnswered] = useState<boolean>(false);
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
@@ -29,8 +30,22 @@ export const RiddleCard: React.FC<RiddleCardProps> = ({
   const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
   const [shakeWrong, setShakeWrong] = useState<boolean>(false);
 
-  // Reset local state when riddle changes
+  // Check if an option matches the answer
+  const isMatchingAnswer = (option: string) => {
+    const opt = option.toLowerCase().trim();
+    const ans = riddle.answer.toLowerCase().trim();
+    if (opt === ans) return true;
+    return riddle.aliases.some(alias => opt === alias.toLowerCase().trim());
+  };
+
+  // Reset local state and shuffle options so answers are never in a fixed position
   useEffect(() => {
+    const shuffled = [...riddle.options];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    setDisplayOptions(shuffled);
     setSelectedOption(null);
     setIsAnswered(false);
     setIsCorrect(false);
@@ -72,12 +87,7 @@ export const RiddleCard: React.FC<RiddleCardProps> = ({
     sounds.playBubblePop();
     setSelectedOption(option);
 
-    // Check if correct
-    const isAnswerMatch =
-      option.toLowerCase().trim() === riddle.answer.toLowerCase().trim() ||
-      riddle.aliases.some(alias => option.toLowerCase().includes(alias.toLowerCase()));
-
-    if (isAnswerMatch) {
+    if (isMatchingAnswer(option)) {
       setIsAnswered(true);
       setIsCorrect(true);
       sounds.playCorrectSound();
@@ -94,10 +104,8 @@ export const RiddleCard: React.FC<RiddleCardProps> = ({
 
   const handleUse5050Clue = () => {
     sounds.playCoinSound();
-    const wrongOptions = riddle.options.filter(
-      opt => opt.toLowerCase().trim() !== riddle.answer.toLowerCase().trim()
-    );
-    // Shuffle and pick 2 to eliminate
+    const wrongOptions = displayOptions.filter(opt => !isMatchingAnswer(opt));
+    // Pick 2 wrong options to eliminate
     const shuffledWrong = [...wrongOptions].sort(() => Math.random() - 0.5);
     setEliminatedOptions(shuffledWrong.slice(0, 2));
   };
@@ -205,11 +213,10 @@ export const RiddleCard: React.FC<RiddleCardProps> = ({
 
       {/* Multiple Choice Options */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-        {riddle.options.map((option, idx) => {
+        {displayOptions.map((option, idx) => {
           const isEliminated = eliminatedOptions.includes(option);
           const isSelected = selectedOption === option;
-          const isThisOptionCorrect =
-            option.toLowerCase().trim() === riddle.answer.toLowerCase().trim();
+          const isThisOptionCorrect = isMatchingAnswer(option);
 
           let btnStyle = 'bg-white hover:bg-sky-50 text-slate-800 border-2 border-sky-100 hover:border-sky-300';
 

@@ -10,7 +10,7 @@ export interface RiddleItem {
   hint: string;
   funFact: string;
   zoneId: number; // 1 to 6 zone progression
-  options: string[]; // 4 multiple choice choices
+  options: string[]; // 4 multiple choice choices (spread unpredictably across A, B, C, D)
 }
 
 export interface ZoneInfo {
@@ -94,7 +94,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "It holds more than 70% of all the water on our planet!",
     funFact: "The ocean covers about 71% of Earth's surface and is home to over 240,000 known animal species!",
     zoneId: 1,
-    options: ["The ocean", "A cloud", "A swimming pool", "The sky"]
+    // Answer at C (index 2)
+    options: ["A cloud", "The sky", "The ocean", "A swimming pool"]
   },
   {
     id: 2,
@@ -108,6 +109,7 @@ export const RIDDLES: RiddleItem[] = [
     hint: "Wind makes me roll across the water until I splash on the sand!",
     funFact: "Most ocean waves are made by wind blowing across water. Surfers love to ride them!",
     zoneId: 1,
+    // Answer at A (index 0)
     options: ["A wave", "A speedboat", "A seagull", "A submarine"]
   },
   {
@@ -122,7 +124,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "You swim in me on vacations, but you definitely don't sprinkle me on french fries!",
     funFact: "A cup of seawater contains about a teaspoon of dissolved minerals and salts!",
     zoneId: 1,
-    options: ["The sea", "A pretzel", "A french fry", "A salt shaker"]
+    // Answer at D (index 3)
+    options: ["A pretzel", "A french fry", "A salt shaker", "The sea"]
   },
   {
     id: 4,
@@ -136,7 +139,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "I look just like a twinkling shape in the night sky, but I live underwater!",
     funFact: "Starfish don't have blood or brains! Instead, they pump filtered seawater through their bodies to move.",
     zoneId: 1,
-    options: ["A starfish (sea star)", "An octopus", "A lobster", "A sea sponge"]
+    // Answer at B (index 1)
+    options: ["An octopus", "A starfish (sea star)", "A lobster", "A sea sponge"]
   },
   {
     id: 5,
@@ -150,7 +154,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "Click-clack! I scuttle sideways along the wet sand and dig quick little burrows.",
     funFact: "Crabs walk sideways because their leg joints bend outward rather than forward like ours!",
     zoneId: 1,
-    options: ["A crab", "A lobster", "A turtle", "A lizard"]
+    // Answer at D (index 3)
+    options: ["A lobster", "A turtle", "A lizard", "A crab"]
   },
 
   // Zone 2: Coral Cove
@@ -166,7 +171,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "I am the biggest mammal in the sea and breathe through a blowhole!",
     funFact: "A blue whale's heart is the size of a small car, and its song can travel hundreds of miles through water!",
     zoneId: 2,
-    options: ["A whale", "A submarine", "A fountain pen", "A dolphin"]
+    // Answer at B (index 1)
+    options: ["A submarine", "A whale", "A fountain pen", "A dolphin"]
   },
   {
     id: 7,
@@ -180,7 +186,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "You might know one named Nemo! I love living safe inside sea anemones.",
     funFact: "Clownfish have a special slimy mucus coat that protects them from the anemone's stinging tentacles!",
     zoneId: 2,
-    options: ["A clownfish", "A goldfish", "A tiger shark", "A rainbow trout"]
+    // Answer at C (index 2)
+    options: ["A goldfish", "A rainbow trout", "A clownfish", "A tiger shark"]
   },
   {
     id: 8,
@@ -194,6 +201,7 @@ export const RIDDLES: RiddleItem[] = [
     hint: "I float like an umbrella with flowing tentacles and look like see-through jelly!",
     funFact: "Jellyfish have been drifting in oceans for over 500 million years—even before dinosaurs existed!",
     zoneId: 2,
+    // Answer at A (index 0)
     options: ["A jellyfish", "A marshmallow", "A sea cucumber", "A starfish"]
   },
   {
@@ -208,7 +216,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "A big group of us swimming together is called a 'school'!",
     funFact: "Swimming in a school protects fish from predators because it confuses hunters like sharks and tuna!",
     zoneId: 2,
-    options: ["A fish", "A teacher", "A dolphin", "A mermaid"]
+    // Answer at D (index 3)
+    options: ["A teacher", "A dolphin", "A mermaid", "A fish"]
   },
   {
     id: 10,
@@ -222,7 +231,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "I swallow water quickly so I become too round and spiky for big fish to bite!",
     funFact: "When threatened, pufferfish gulp air or water to swell up to several times their normal size!",
     zoneId: 2,
-    options: ["A pufferfish", "A basketball", "A sea urchin", "A balloon"]
+    // Answer at B (index 1)
+    options: ["A basketball", "A pufferfish", "A sea urchin", "A balloon"]
   },
 
   // Zone 3: Open Blue Waters
@@ -238,7 +248,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "I am super smart, click and whistle to my friends, and love doing flips above the waves!",
     funFact: "Dolphins give each other unique signature whistles—just like humans having names!",
     zoneId: 3,
-    options: ["A dolphin", "A seal", "A shark", "A walrus"]
+    // Answer at C (index 2)
+    options: ["A seal", "A shark", "A dolphin", "A walrus"]
   },
   {
     id: 12,
@@ -252,6 +263,7 @@ export const RIDDLES: RiddleItem[] = [
     hint: "I have a hard protective shell and use my flippers to paddle through the sea!",
     funFact: "Sea turtles can hold their breath underwater for 4 to 7 hours while resting!",
     zoneId: 3,
+    // Answer at A (index 0)
     options: ["A sea turtle (or hermit crab)", "A snail", "An armadillo", "A pelican"]
   },
   {
@@ -266,7 +278,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "Mother sea turtles return to the very same beach where they were born to lay their eggs in the sand!",
     funFact: "Baby sea turtles use the natural light of the moon over the sea to find their way to the water at night!",
     zoneId: 3,
-    options: ["A sea turtle", "A crocodile", "A penguin", "A crab"]
+    // Answer at D (index 3)
+    options: ["A crocodile", "A penguin", "A crab", "A sea turtle"]
   },
   {
     id: 14,
@@ -280,7 +293,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "Wax your surfboard and paddle out! When I curl, you can ride my barrel!",
     funFact: "The largest wave ever surfed was over 86 feet high (taller than an 8-story building) in Nazaré, Portugal!",
     zoneId: 3,
-    options: ["A big wave", "A waterfall", "A water slide", "A fountain"]
+    // Answer at B (index 1)
+    options: ["A waterfall", "A big wave", "A water slide", "A fountain"]
   },
   {
     id: 15,
@@ -294,7 +308,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "I bubble like soap suds when the water tosses and turns near the shore!",
     funFact: "Sea foam is formed when ocean water with organic materials and algae gets churned up by strong winds and waves!",
     zoneId: 3,
-    options: ["Sea foam", "Bubble bath", "Whipped cream", "Cotton candy"]
+    // Answer at C (index 2)
+    options: ["Bubble bath", "Whipped cream", "Sea foam", "Cotton candy"]
   },
 
   // Zone 4: Coastal Haven
@@ -310,6 +325,7 @@ export const RIDDLES: RiddleItem[] = [
     hint: "I love balancing on just one thin leg while eating yummy brine shrimp!",
     funFact: "Flamingos are actually born with grey feathers! They turn bright pink from the carotenoids in the algae and shrimp they eat.",
     zoneId: 4,
+    // Answer at A (index 0)
     options: ["A flamingo", "A parrot", "A pelican", "A swan"]
   },
   {
@@ -324,7 +340,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "Keep an eye on your picnic basket! I swoop down with a loud 'MINE! MINE!' squawk.",
     funFact: "Seagulls have special glands right above their eyes that filter out extra salt, allowing them to drink ocean water!",
     zoneId: 4,
-    options: ["A seagull", "An eagle", "A pigeon", "A toucan"]
+    // Answer at C (index 2)
+    options: ["An eagle", "A pigeon", "A seagull", "A toucan"]
   },
   {
     id: 18,
@@ -338,7 +355,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "I waddle on icy shores wearing what looks like a fancy tuxedo!",
     funFact: "Penguins 'fly' underwater! Their flippers propel them through waves at speeds up to 15 miles per hour.",
     zoneId: 4,
-    options: ["A penguin", "A puffin", "A panda", "A dalmatian"]
+    // Answer at B (index 1)
+    options: ["A puffin", "A penguin", "A panda", "A dalmatian"]
   },
   {
     id: 19,
@@ -352,7 +370,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "Bring your bucket and spade—it's the perfect place to build a sandcastle!",
     funFact: "Beaches come in different colors around the world: golden, pure white, pink (from crushed shells), and even black (from volcanic lava)!",
     zoneId: 4,
-    options: ["A beach", "A desert", "A soccer field", "A playground"]
+    // Answer at D (index 3)
+    options: ["A desert", "A soccer field", "A playground", "A beach"]
   },
   {
     id: 20,
@@ -366,7 +385,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "Grab your towel and sunscreen! Walk right where the tide touches your toes.",
     funFact: "Sand on beaches is made from billions of tiny crushed rocks, coral fragments, and shells smoothed over millions of years!",
     zoneId: 4,
-    options: ["A beach", "A sandbox", "A driveway", "A mud pit"]
+    // Answer at B (index 1)
+    options: ["A sandbox", "A beach", "A driveway", "A mud pit"]
   },
 
   // Zone 5: Hidden Reef & Lagoon
@@ -382,7 +402,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "If you hold me up to your ear, some people say you can hear the ocean whisper!",
     funFact: "Seashells are actually the abandoned outer homes of soft sea creatures like mollusks, clams, and snails!",
     zoneId: 5,
-    options: ["A pebble or seashell", "A coconut", "A basketball", "A jellyfish"]
+    // Answer at D (index 3)
+    options: ["A coconut", "A basketball", "A jellyfish", "A pebble or seashell"]
   },
   {
     id: 22,
@@ -396,6 +417,7 @@ export const RIDDLES: RiddleItem[] = [
     hint: "High or low, the moon's gravity pulls the ocean water back and forth across the sand.",
     funFact: "The gravitational pull of the moon (and a little bit from the sun) creates ocean tides all over the world every single day!",
     zoneId: 5,
+    // Answer at A (index 0)
     options: ["The tide", "The wind", "A submarine", "A surfer"]
   },
   {
@@ -410,7 +432,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "I am one of the most popular swimming pets in the world!",
     funFact: "Goldfish actually have great memories! Studies show they can remember things for months and even learn simple tricks.",
     zoneId: 5,
-    options: ["A goldfish", "A canary", "A rubber duck", "A lemon"]
+    // Answer at C (index 2)
+    options: ["A canary", "A rubber duck", "A goldfish", "A lemon"]
   },
   {
     id: 24,
@@ -424,7 +447,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "When I grow too big for my shell home, I search the beach to swap into a bigger one!",
     funFact: "Hermit crabs line up in size order to trade shells with each other when a new spacious shell washes ashore!",
     zoneId: 5,
-    options: ["A hermit crab", "A shrimp", "A snail", "A caterpillar"]
+    // Answer at B (index 1)
+    options: ["A shrimp", "A hermit crab", "A snail", "A caterpillar"]
   },
   {
     id: 25,
@@ -438,7 +462,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "An oyster wraps a tiny grain of sand in shiny layers to make this treasure!",
     funFact: "Natural pearls are formed when an oyster coats an irritant with thousands of shiny mineral layers called nacre!",
     zoneId: 5,
-    options: ["A pearl", "A diamond", "A gold coin", "A glass marble"]
+    // Answer at D (index 3)
+    options: ["A diamond", "A gold coin", "A glass marble", "A pearl"]
   },
 
   // Zone 6: Deep Ocean Wonders
@@ -454,6 +479,7 @@ export const RIDDLES: RiddleItem[] = [
     hint: "I have suction cups on all my arms, three hearts, and can squirt dark ink to escape!",
     funFact: "Octopuses have blue blood, three hearts, and can squeeze their soft bodies through any hole larger than their hard beak!",
     zoneId: 6,
+    // Answer at A (index 0)
     options: ["An octopus (or rock crab)", "A spider", "A squid", "A starfish"]
   },
   {
@@ -468,7 +494,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "Swirling rapidly round and round like water rushing down a gigantic bathtub drain!",
     funFact: "Giant whirlpools, called maelstroms, are caused by powerful ocean tides rushing through narrow channels!",
     zoneId: 6,
-    options: ["A whirlpool", "A tornado", "A water slide", "A washing machine"]
+    // Answer at C (index 2)
+    options: ["A tornado", "A water slide", "A whirlpool", "A washing machine"]
   },
   {
     id: 28,
@@ -482,7 +509,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "Close your eyes on the beach and feel cool fresh air blowing gently across your face.",
     funFact: "Sea breezes happen because land warms up faster than water during sunny days, pulling cool sea air inward!",
     zoneId: 6,
-    options: ["A sea breeze", "A thunderstorm", "A kite", "A windmill"]
+    // Answer at B (index 1)
+    options: ["A thunderstorm", "A sea breeze", "A kite", "A windmill"]
   },
   {
     id: 29,
@@ -496,7 +524,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "My two shell halves open and close like a little hinged treasure chest buried in the sand.",
     funFact: "Clams are nature's ocean water filters! A single clam can clean gallons of water every day by filtering out plankton.",
     zoneId: 6,
-    options: ["A clam", "An oyster", "A snail", "A walnut"]
+    // Answer at D (index 3)
+    options: ["An oyster", "A snail", "A walnut", "A clam"]
   },
   {
     id: 30,
@@ -510,7 +539,8 @@ export const RIDDLES: RiddleItem[] = [
     hint: "I hide in rocky sea caves and coral crevices, ribboning gracefully through the water.",
     funFact: "Moray eels have a second hidden set of jaws inside their throat called pharyngeal jaws to pull food in!",
     zoneId: 6,
-    options: ["An eel", "A sea snake", "A python", "A giant worm"]
+    // Answer at C (index 2)
+    options: ["A sea snake", "A python", "An eel", "A giant worm"]
   }
 ];
 

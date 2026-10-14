@@ -1,8 +1,8 @@
 import React from 'react';
-import { Volume2, VolumeX, Sparkles, Flame, Coins, Map, Gamepad2, SpellCheck, BookOpen, Trophy, PlusCircle } from 'lucide-react';
+import { Volume2, VolumeX, Sparkles, Flame, Coins, Map, Gamepad2, SpellCheck, Trophy, PlusCircle } from 'lucide-react';
 import { PlayerProfile, AVATARS } from '../data/riddles';
 
-export type GameTab = 'adventure' | 'quiz' | 'spelling' | 'storybook' | 'trophies' | 'maker';
+export type GameTab = 'adventure' | 'quiz' | 'spelling' | 'trophies' | 'maker';
 
 interface HeaderProps {
   currentTab: GameTab;
@@ -27,7 +27,6 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'adventure', label: 'Island Quest', icon: <Map className="w-4 h-4 text-emerald-600" /> },
     { id: 'quiz', label: 'Splash Quiz', icon: <Gamepad2 className="w-4 h-4 text-blue-600" /> },
     { id: 'spelling', label: 'Bubble Spell', icon: <SpellCheck className="w-4 h-4 text-purple-600" /> },
-    { id: 'storybook', label: 'Riddle Book', icon: <BookOpen className="w-4 h-4 text-amber-600" /> },
     { id: 'trophies', label: 'Treasure Chest', icon: <Trophy className="w-4 h-4 text-yellow-600" /> },
     { id: 'maker', label: 'Make a Riddle', icon: <PlusCircle className="w-4 h-4 text-rose-500" /> },
   ];

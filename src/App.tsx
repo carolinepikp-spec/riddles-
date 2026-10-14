@@ -10,7 +10,6 @@ import { BackgroundBubbles } from './components/BackgroundBubbles';
 import { AdventureMap } from './components/AdventureMap';
 import { SplashQuizMode } from './components/SplashQuizMode';
 import { BubbleSpellingMode } from './components/BubbleSpellingMode';
-import { StorybookExplorer } from './components/StorybookExplorer';
 import { TrophyChest } from './components/TrophyChest';
 import { RiddleMaker, CustomRiddle } from './components/RiddleMaker';
 import { AvatarPickerModal } from './components/AvatarPickerModal';
@@ -112,17 +111,6 @@ export default function App() {
     });
   };
 
-  const handleToggleStar = (riddleId: number) => {
-    setProfile(prev => {
-      const exists = prev.starredIds.includes(riddleId);
-      return {
-        ...prev,
-        starredIds: exists
-          ? prev.starredIds.filter(id => id !== riddleId)
-          : [...prev.starredIds, riddleId],
-      };
-    });
-  };
 
   const handleUpdateProfile = (name: string, avatarId: string) => {
     setProfile(prev => ({
@@ -186,14 +174,6 @@ export default function App() {
           />
         )}
 
-        {currentTab === 'storybook' && (
-          <StorybookExplorer
-            starredIds={profile.starredIds}
-            onToggleStar={handleToggleStar}
-            solvedIds={profile.solvedIds}
-          />
-        )}
-
         {currentTab === 'trophies' && (
           <TrophyChest
             profile={profile}
@@ -229,16 +209,6 @@ export default function App() {
 
           <div className="flex items-center gap-4 text-slate-500">
             <span>30 Original Ocean Riddles</span>
-            <span>·</span>
-            <button
-              onClick={() => {
-                sounds.playBubblePop();
-                setCurrentTab('storybook');
-              }}
-              className="hover:text-sky-700 transition-colors underline"
-            >
-              Riddle Library
-            </button>
             <span>·</span>
             <button
               onClick={() => {
